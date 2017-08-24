@@ -3,9 +3,11 @@ Unofficial Coinbase Python Library
 
 Python Library for the Coinbase API for use with three legged oAuth2 and classic API key usage
 
+[![Travis build status](https://travis-ci.org/sibblegp/coinbase_python.png?branch=master)](https://travis-ci.org/sibblegp/coinbase)
+
 ## Version
 
-0.1.0-7
+0.3.0
 
 ## Requirements
 - [Coinbase Account](http://www.coinbase.com)
@@ -22,9 +24,12 @@ Automatic installation using [pip](http://pypi.python.org/pypi):
 
 ```python
 from coinbase import CoinbaseAccount
-account = CoinbaseAccount(JSON_OAUTH2_TOKEN)
-transaction = account.send('gsibble@gmail.com', 1.0)
-print transaction.status
+
+print(CoinbaseAccount().exchange_rates['usd_to_btc'])
+
+account = CoinbaseAccount(oauth2_credentials=JSON_OAUTH2_TOKEN)
+transaction = account.send('recipient@example.com', 1.0)
+print(transaction.status)
 ```
 
 ## Examples / Quickstart
@@ -46,32 +51,45 @@ More documentation coming soon.
 
 ## Changelog
 
-0.1.0
+0.3.0
 
-* Initial Commit
+* Major Updates
 
-0.1.0-2
+0.2.1
 
-* Generate New Receive Address
+* Updated SSL Certs
+* Added payment button support
 
-0.1.0-3
+0.2.0
 
-* Get User Details
-* Refactor some attribute capitalization
+* Push many updates to PyPi
 
-0.1.0-4
+0.1.0-7
 
-* User Details unittest
-* Small tweaks
+* Fix SSL Certificates
 
 0.1.0-5
 
 * Set flag for token status when initializing
 * Raise error if transaction fails
 
-0.1.0-7
+0.1.0-4
 
-* Fix SSL Certificates
+* User Details unittest
+* Small tweaks
+
+0.1.0-3
+
+* Get User Details
+* Refactor some attribute capitalization
+
+0.1.0-2
+
+* Generate New Receive Address
+
+0.1.0
+
+* Initial Commit
 
 ## Contributing
 
@@ -80,6 +98,8 @@ Contributions are greatly appreciated.  Please make all requests using built in 
 ## Credits
 
 - George Sibble &lt;gsibble@gmail.com&gt;
+- Chris Martin &lt;ch.martin@gmail.com&gt;
+- Matt Luongo
 
 ## License
 

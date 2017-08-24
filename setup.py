@@ -2,8 +2,9 @@ from distutils.core import setup
 
 setup(
     name='coinbase',
-    version='0.1.0-7',
+    version='0.2.1',
     packages=['coinbase', 'coinbase.models'],
+    package_data={'coinbase': ['ca_certs.txt']},
     url='https://github.com/sibblegp/coinbase_python',
     license='MIT',
     author='George Sibble',
@@ -19,11 +20,18 @@ setup(
         'Operating System :: Microsoft :: Windows',
         'Operating System :: POSIX',
         'Programming Language :: Python',
-        'Topic :: Software Development :: Libraries :: Python Modules'
-        ],
+        'Topic :: Software Development :: Libraries :: Python Modules',
+    ],
     install_requires=[
         'httplib2>=0.8',
         'requests>=1.1.0',
-        'oauth2client>=1.1'
-        ]
+        'oauth2client>=1.1',
+        'python-dateutil>=2.2',
+        'enum34==1.0',
+    ],
+    tests_require=[
+        'sure>=1.2.5',
+        'httpretty>=0.8.0',
+        'mock',
+    ],
 )
